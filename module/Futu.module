@@ -1,0 +1,7 @@
+#!name=Futu Broker
+#!desc=Route Futu / 富途 / moomoo domains through proxy
+#!author=KylinWu
+#!homepage=https://github.com/KylinWu/proxy-rules
+
+[Rule]
+RULE-SET,https://raw.githubusercontent.com/KylinWu/proxy-rules/main/rule/Broker/Futu/Futu.list,PROXY

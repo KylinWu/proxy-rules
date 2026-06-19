@@ -10,7 +10,9 @@ mechanisms.
 rule/
 └── <Category>/
     └── <Provider>/
-        └── <Provider>.list
+        └── <Provider>.list      # the ruleset (classical format)
+module/
+└── <Provider>.module           # Shadowrocket / Surge module wrapping the ruleset
 ```
 
 Each `.list` file is in the **classical** format — plain `DOMAIN-SUFFIX` /
@@ -20,9 +22,9 @@ clients.
 
 Current rulesets:
 
-| Category | Provider | File |
-| --- | --- | --- |
-| Broker | Futu (富途 / moomoo) | [`rule/Broker/Futu/Futu.list`](rule/Broker/Futu/Futu.list) |
+| Category | Provider | Ruleset | Module |
+| --- | --- | --- | --- |
+| Broker | Futu (富途 / moomoo) | [`rule/Broker/Futu/Futu.list`](rule/Broker/Futu/Futu.list) | [`module/Futu.module`](module/Futu.module) |
 
 ## Usage
 
@@ -57,13 +59,31 @@ RULE-SET,https://raw.githubusercontent.com/KylinWu/proxy-rules/main/rule/Broker/
 
 Replace `🚀 Proxy` with whatever policy group you want these domains to use.
 
+### Shadowrocket (module)
+
+If your main config is a remote subscription you periodically reload, do **not**
+add the `RULE-SET` line into that config — it gets wiped on every update. Use a
+module instead: modules are stored separately and layered on top of the active
+config, so they survive subscription updates.
+
+In Shadowrocket: **Home → Modules → +**, add this URL, then toggle it on:
+
+```
+https://raw.githubusercontent.com/KylinWu/proxy-rules/main/module/Futu.module
+```
+
+The module just references the remote `RULE-SET`, so the domain list keeps
+auto-updating from this repo. Edit the `PROXY` policy in the module if your
+config uses a named proxy group.
+
 ## Adding a new ruleset
 
 1. Create `rule/<Category>/<Provider>/<Provider>.list`.
 2. Start with a header comment block (`# NAME`, `# REPO`, `# UPDATED`, rule counts).
 3. Add one rule per line, no policy. Keep entries sorted and deduplicated —
    drop any host already covered by a broader `DOMAIN-SUFFIX`.
-4. Update the table above.
+4. Optionally add `module/<Provider>.module` wrapping the ruleset via `RULE-SET`.
+5. Update the table above.
 
 ## License
 
