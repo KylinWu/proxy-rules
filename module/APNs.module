@@ -1,0 +1,7 @@
+#!name=Apple APNs
+#!desc=Route Apple push notifications (APNs) through the proxy. After enabling, toggle Airplane Mode once to drop all connections so it takes effect; if it still fails, go to Settings -> Tunnel and turn on "Include All Networks" and the APNs switch.
+#!author=KylinWu
+#!homepage=https://github.com/KylinWu/proxy-rules
+
+[Rule]
+RULE-SET,https://raw.githubusercontent.com/KylinWu/proxy-rules/main/rule/Apple/APNs/APNs.list,PROXY

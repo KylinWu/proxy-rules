@@ -25,6 +25,7 @@ Current rulesets:
 | Category | Provider | Ruleset | Module |
 | --- | --- | --- | --- |
 | Broker | Futu (富途 / moomoo) | [`rule/Broker/Futu/Futu.list`](rule/Broker/Futu/Futu.list) | [`module/Futu.module`](module/Futu.module) |
+| Apple | APNs (push notifications) | [`rule/Apple/APNs/APNs.list`](rule/Apple/APNs/APNs.list) | [`module/APNs.module`](module/APNs.module) |
 
 ## Usage
 
@@ -70,11 +71,12 @@ In Shadowrocket: **Home → Modules → +**, add this URL, then toggle it on:
 
 ```
 https://raw.githubusercontent.com/KylinWu/proxy-rules/main/module/Futu.module
+https://raw.githubusercontent.com/KylinWu/proxy-rules/main/module/APNs.module
 ```
 
-The module just references the remote `RULE-SET`, so the domain list keeps
-auto-updating from this repo. Edit the `PROXY` policy in the module if your
-config uses a named proxy group.
+Each module just references its remote `RULE-SET`, so the domain/IP list keeps
+auto-updating from this repo. Edit the `PROXY` policy in a module if your config
+uses a named proxy group.
 
 ## Adding a new ruleset
 
