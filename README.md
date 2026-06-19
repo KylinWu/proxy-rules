@@ -24,7 +24,7 @@ Current rulesets:
 
 | Category | Provider | Ruleset | Module |
 | --- | --- | --- | --- |
-| Broker | Futu (富途 / moomoo) | [`rule/Broker/Futu/Futu.list`](rule/Broker/Futu/Futu.list) | [`module/Futu.module`](module/Futu.module) |
+| Broker | Futu / moomoo | [`rule/Broker/Futu/Futu.list`](rule/Broker/Futu/Futu.list) | [`module/Futu.module`](module/Futu.module) |
 | Apple | APNs (push notifications) | [`rule/Apple/APNs/APNs.list`](rule/Apple/APNs/APNs.list) | [`module/APNs.module`](module/APNs.module) |
 
 ## Usage
